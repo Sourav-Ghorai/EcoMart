@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&family=Poppins:wght@300;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* font-family: "Playfair Display", serif; */
+/* font-family: "Poppins", sans-serif; */
+
+/* NavBar Styling */
+.navbar {
+  background-color: #e3f2fd;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  box-shadow: 0 7px 6px -7px gray;
+  --webkit-box-shadow: 0 8px 6px -6px gray;
+  border-bottom: 0.1px solid #b5cef3;
+}
+.nav-link {
+  font-weight: 300;
+}
+
+.active {
+  border-bottom: 2px solid black;
+}
+
+.navbar-brand {
+  font-family: "roboto", "Poppins";
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+/* ..........Footer............. */
+
+.footer {
+  padding: 25px;
+  color: white;
+  background: linear-gradient(to right, #0c0c0c, #3b3b3b);
+}
+.footer a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+.footer a:hover {
+  color: wheat;
+  border-bottom: 1px solid wheat;
+  transition: all 0.3s ease-in-out;
+}
+
+/* .........Page not found Css...............  */
+
+.pnf {
+  display: flex;
+  min-height: 65vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pnf-title {
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.pnf-heading {
+  font-weight: normal;
+}
+
+.pnf-btn {
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 10px;
+  margin-top: 10px;
+}
+.pnf-btn:hover {
+  background-color: rgb(66, 66, 66);
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+/* ............Styling the About, Contact and policy page ...............  */
+
+.contactUs {
+  margin: 0;
+  padding: 0;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ................Register Page Signing..................  */
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  flex-direction: column;
+}
