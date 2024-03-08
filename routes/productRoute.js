@@ -27,7 +27,7 @@ router.post(
 router.get("/get-product", getProductController);
 
 //Get single product
-router.get("/get-product/:slug", singleProductController);
+router.get("/get-product/:pid", singleProductController);
 
 //Get Photo
 router.get("/product-photo/:pid", productPhotoController);

@@ -6,7 +6,7 @@ function AdminMenu() {
     <>
       <div className="text-center">
         <div className="list-group">
-          <h4>Admin Panel</h4>
+          <h4 className="mb-3">Admin Panel</h4>
           <NavLink
             to="/dashboard/admin/create-category"
             className="list-group-item list-group-item-action"
@@ -24,6 +24,12 @@ function AdminMenu() {
             className="list-group-item list-group-item-action"
           >
             Users
+          </NavLink>
+          <NavLink
+            to="/dashboard/admin/products"
+            className="list-group-item list-group-item-action"
+          >
+            All Products
           </NavLink>
         </div>
       </div>

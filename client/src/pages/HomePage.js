@@ -6,8 +6,8 @@ function HomePage() {
    const [auth, setAuth] = useAuth();
   return (
     <Layout title={"EcoMart - Best Offers"}>
-      <h1>Home Page</h1>
       {/* <p>{JSON.stringify(auth)}</p> */}
+      
     </Layout>
   )
 }

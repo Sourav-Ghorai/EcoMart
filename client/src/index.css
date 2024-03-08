@@ -15,9 +15,9 @@
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   line-height: 26px;
-  box-shadow: 0 7px 6px -7px gray;
+  box-shadow: 0 2px 5px #b1b1b1c4;
   --webkit-box-shadow: 0 8px 6px -6px gray;
-  border-bottom: 0.1px solid #b5cef3;
+  border-bottom: 2px solid #b1b1b1c4;
 }
 .nav-link {
   font-weight: 300;
@@ -31,6 +31,7 @@
   font-family: "roboto", "Poppins";
   font-weight: 700;
   letter-spacing: 0.8px;
+  text-shadow: 2px 3px 2px #4b4a4a38;
 }
 
 /* ..........Footer............. */
@@ -102,4 +103,15 @@
   align-items: center;
   height: 70vh;
   flex-direction: column;
+}
+
+/* Products item card  */
+.products-item{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+   gap: 15px;
+}
+.products-item a{
+   text-decoration: none !important;
 }
