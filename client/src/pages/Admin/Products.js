@@ -22,6 +22,7 @@ function Products() {
   };
   useEffect(() => {
     getAllProducts();
+     console.log(products)
   }, []);
 
   return (
@@ -33,10 +34,14 @@ function Products() {
           </div>
           <div className="col-md-9">
             <h4 className="text-center mb-3">All Products Lists</h4>
-            <div className="products-item">
+            <div className="products-item d-flex flex-wrap justify-content-center">
               {products.map((p) => (
                 <Link to={`/dashboard/admin/products/${p._id}`}>
-                  <div className="card" style={{ width: "18rem" }} key={p._id}>
+                  <div
+                    className="card m-2"
+                    style={{ width: "18rem" }}
+                    key={p._id}
+                  >
                     <img
                       src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"
@@ -44,7 +49,9 @@ function Products() {
                     />
                     <div className="card-body">
                       <h5 className="card-title">{p.name}</h5>
-                      <p className="card-text">{p.description}</p>
+                      <p className="card-text">
+                        {p.description.substring(0, 33)}
+                      </p>
                     </div>
                   </div>
                 </Link>

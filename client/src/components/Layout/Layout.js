@@ -2,11 +2,11 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
 
 function Layout({ children, title, description, keywords, author }) {
   return (
-    <div>
+    <>
       {/* For setting title according to different page we use Helmet  */}
       <Helmet>
         <meta charSet="utf-8" />
@@ -21,7 +21,7 @@ function Layout({ children, title, description, keywords, author }) {
       <Toaster />
       <main style={{ minHeight: "70vh" }}>{children}</main>
       <Footer />
-    </div>
+    </>
   );
 }
 

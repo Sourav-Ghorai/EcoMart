@@ -4,8 +4,11 @@ import {
   createProductController,
   deleteProductController,
   getProductController,
+  productFilterController,
+  productListController,
   productPhotoController,
   singleProductController,
+  totalProductController,
   updateProductController,
 } from "../controllers/productController.js";
 import formidable from "express-formidable";
@@ -43,5 +46,14 @@ router.put(
 
 //Delete Product
 router.delete("/delete-product/:pid", deleteProductController);
+
+//Filter product
+router.post("/product-filter", productFilterController);
+
+//Total product count
+router.get("/total-product", totalProductController);
+
+//Product lists according to page
+router.get("/product-list/:page", productListController);
 
 export default router;

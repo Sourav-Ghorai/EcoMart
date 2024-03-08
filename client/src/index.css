@@ -106,12 +106,12 @@
 }
 
 /* Products item card  */
-.products-item{
+/* .products-item{
    display: flex;
    flex-wrap: wrap;
    justify-content: space-evenly;
    gap: 15px;
-}
+} */
 .products-item a{
    text-decoration: none !important;
 }
