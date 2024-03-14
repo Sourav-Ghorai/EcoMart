@@ -243,3 +243,53 @@ export const productListController = async (req, res) => {
     });
   }
 };
+
+//Search Product Controller
+export const searchProductController = async (req, res) => {
+  try {
+    const { keyword } = req.params;
+    const result = await productModel
+      .find({
+        $or: [
+          { name: { $regex: keyword, $options: "i" } },
+          { description: { $regex: keyword, $options: "i" } },
+        ],
+      })
+      .select("-photo");
+    res.json(result);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      message: "Error in searching product",
+      error,
+    });
+  }
+};
+
+//Related Product Controller
+export const relatedProductController = async (req, res) => {
+   try {
+     const { pid, cid } = req.params;
+     const products = await productModel
+       .find({
+         category: cid,
+         _id: { $ne: pid },
+       })
+       .select("-photo")
+       .limit(3)
+       .populate("category");
+ 
+     res.status(200).json({
+       success: true,
+       products,
+     });
+   } catch (error) {
+     console.error("Error in finding similar products:", error);
+     res.status(500).json({
+       success: false,
+       message: "Error in finding similar products",
+     });
+   }
+ };
+ 

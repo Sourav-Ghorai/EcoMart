@@ -4,6 +4,7 @@ import { useAuth } from "../contextApi/auth";
 import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { PriceRange } from "../components/PriceRange";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
   const [auth, setAuth] = useAuth();
@@ -14,6 +15,7 @@ function HomePage() {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   //Filter by category
   const handleFilter = (value, id) => {
@@ -172,10 +174,10 @@ function HomePage() {
                   <h5 className="card-title">{p.name}</h5>
                   <p className="card-text">{p.description.substring(0, 30)}</p>
                   <p className="card-text">₹ {p.price}</p>
-                  <a href="#" class="btn btn-primary ms-2">
+                  <a class="btn btn-primary ms-2" onClick={()=> navigate(`/product/${p._id}`)}>
                     More Details
                   </a>
-                  <a href="#" class="btn btn-secondary ms-2">
+                  <a class="btn btn-secondary ms-2">
                     Add to Cart
                   </a>
                 </div>

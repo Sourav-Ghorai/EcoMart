@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { PiShoppingCartDuotone } from "react-icons/pi";
 import { useAuth } from "../../contextApi/auth";
 import toast from "react-hot-toast";
+import SearchInput from "../Form/SearchInput";
 
 function Header() {
   const [auth, setAuth] = useAuth();
@@ -34,6 +35,8 @@ function Header() {
           >
             <span className="navbar-toggler-icon" />
           </button>
+
+          <SearchInput />
 
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">

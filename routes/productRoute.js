@@ -7,6 +7,8 @@ import {
   productFilterController,
   productListController,
   productPhotoController,
+  relatedProductController,
+  searchProductController,
   singleProductController,
   totalProductController,
   updateProductController,
@@ -55,5 +57,11 @@ router.get("/total-product", totalProductController);
 
 //Product lists according to page
 router.get("/product-list/:page", productListController);
+
+//Search Product
+router.get("/search/:keyword", searchProductController);
+
+//Similar Product
+router.get("/related-product/:pid/:cid", relatedProductController);
 
 export default router;
