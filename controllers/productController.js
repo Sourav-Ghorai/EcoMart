@@ -1,5 +1,6 @@
 import slugify from "slugify";
 import productModel from "../models/productModel.js";
+import categoryModel from "../models/categoryModel.js";
 import fs from "fs";
 
 //Create Product controller
@@ -269,27 +270,47 @@ export const searchProductController = async (req, res) => {
 
 //Related Product Controller
 export const relatedProductController = async (req, res) => {
-   try {
-     const { pid, cid } = req.params;
-     const products = await productModel
-       .find({
-         category: cid,
-         _id: { $ne: pid },
-       })
-       .select("-photo")
-       .limit(3)
-       .populate("category");
- 
-     res.status(200).json({
-       success: true,
-       products,
-     });
-   } catch (error) {
-     console.error("Error in finding similar products:", error);
-     res.status(500).json({
-       success: false,
-       message: "Error in finding similar products",
-     });
-   }
- };
- 
+  try {
+    const { pid, cid } = req.params;
+    const products = await productModel
+      .find({
+        category: cid,
+        _id: { $ne: pid },
+      })
+      .select("-photo")
+      .limit(3)
+      .populate("category");
+
+    res.status(200).json({
+      success: true,
+      products,
+    });
+  } catch (error) {
+    console.error("Error in finding similar products:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error in finding similar products",
+    });
+  }
+};
+
+//Get products by category
+
+export const productCategoryController = async (req, res) => {
+  try {
+    const category = await categoryModel.findOne({ slug: req.params.slug });
+    const products = await productModel.find({ category }).populate("category");
+    res.status(200).send({
+      success: true,
+      products,
+      category
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error while finding products according to category",
+      error,
+    });
+  }
+};
