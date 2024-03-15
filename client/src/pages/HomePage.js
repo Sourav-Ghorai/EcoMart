@@ -5,9 +5,12 @@ import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { PriceRange } from "../components/PriceRange";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../contextApi/cart";
+import toast from "react-hot-toast";
 
 function HomePage() {
   const [auth, setAuth] = useAuth();
+  const [cart, setCart] = useCart();
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -174,18 +177,31 @@ function HomePage() {
                   <h5 className="card-title">{p.name}</h5>
                   <p className="card-text">{p.description.substring(0, 30)}</p>
                   <p className="card-text">₹ {p.price}</p>
-                  <a class="btn btn-primary ms-2" onClick={()=> navigate(`/product/${p._id}`)}>
+                  <button
+                    class="btn btn-primary ms-2"
+                    onClick={() => navigate(`/product/${p._id}`)}
+                  >
                     More Details
-                  </a>
-                  <a class="btn btn-secondary ms-2">
+                  </button>
+                  <button
+                    class="btn btn-secondary ms-2"
+                    onClick={() => {
+                      setCart([...cart, p]);
+                      localStorage.setItem(
+                        "cart",
+                        JSON.stringify([...cart, p])
+                      );
+                      toast.success("Product added to cart successfully");
+                    }}
+                  >
                     Add to Cart
-                  </a>
+                  </button>
                 </div>
               </div>
             ))}
           </div>
           <div className="m-3">
-            {products && products.length>0 && products.length < total && (
+            {products && products.length > 0 && products.length < total && (
               <button
                 className="btn btn-outline-dark"
                 onClick={(e) => {
