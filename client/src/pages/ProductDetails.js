@@ -56,13 +56,15 @@ function ProductDetails() {
           />
         </div>
         <div className="col-md-6">
-          <h4 className="mb-3">Product Details</h4>
+          <h4 className="mb-3" style={{ fontWeight: "400" }}>
+            Product Details
+          </h4>
           <p className="my-1">Name: {product.name}</p>
           <p className="my-1">Description: {product.description}</p>
           <p className="my-1">Price: {product.price}</p>
           <p className="my-1">Category: {product.category?.name}</p>
           <button
-            class="btn btn-secondary ms-2"
+            class="btn btn-secondary mt-2"
             onClick={() => {
               setCart([...cart, product]);
               localStorage.setItem("cart", JSON.stringify([...cart, product]));
@@ -75,7 +77,9 @@ function ProductDetails() {
       </div>
       <hr />
       <div className="row container">
-        <h5 className="px-3">Similar Products</h5>
+        <h5 className="px-3" style={{ fontWeight: "400" }}>
+          Similar Products
+        </h5>
         {relatedProduct.length < 1 && (
           <p className="text-center">No similar products found</p>
         )}

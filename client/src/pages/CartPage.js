@@ -41,20 +41,24 @@ function CartPage() {
 
   return (
     <Layout>
-      <div className="container">
+      <div className="container mt-3">
         <div className="row">
           <div className="col-md-12">
-            <h4 className="text-center p-2">{`Hello ${
-              auth?.token && auth.user.name
-            }`}</h4>
+            <h4
+              className="text-center "
+              style={{ fontWeight: "400" }}
+            >{`Hello ${auth?.token && auth.user.name}`}</h4>
 
-            <p className="text-center" style={{ fontSize: "1.1rem" }}>
+            <h6
+              className="text-center mb-4"
+              style={{ fontSize: "1.1rem", fontWeight: "300" }}
+            >
               {cart.length > 0
                 ? `You have ${cart.length} items in your cart. ${
                     auth?.token ? "" : "Please login to checkout."
                   }`
                 : `You have no items in your cart.`}
-            </p>
+            </h6>
           </div>
         </div>
         <div className="row">
@@ -86,10 +90,47 @@ function CartPage() {
             ))}
           </div>
           <div className="col-md-4 text-center">
-            <h4>Cart Summary</h4>
+            <h4 style={{ fontWeight: "400" }}>Cart Summary</h4>
             <p>Total | Checkout | Payment</p>
             <hr />
             <h5>Total: {totalPrice()}</h5>
+            <hr />
+            {auth?.user?.address ? (
+              <>
+                <div className="m-3">
+                  <h5 style={{ fontWeight: "400" }}>Current Address</h5>
+                  <h6 style={{ fontWeight: "300" }}>{auth?.user?.address}</h6>
+                  <button
+                    className="btn btn-outline-warning mt-2"
+                    onClick={() => navigate("/dashboard/user/profile")}
+                  >
+                    Update Address
+                  </button>
+                </div>
+              </>
+            ) : (
+              <div className="mb-3">
+                {auth?.token ? (
+                  <button
+                    className="btn btn-outline-warning"
+                    onClick={() => navigate("/dashboard/user/profile")}
+                  >
+                    Update Address
+                  </button>
+                ) : (
+                  <button
+                    className="btn btn-outline-warning"
+                    onClick={() =>
+                      navigate("/login", {
+                        state: "/cart",
+                      })
+                    }
+                  >
+                    Please Login to checkout
+                  </button>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>

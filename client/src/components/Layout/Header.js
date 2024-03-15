@@ -63,7 +63,11 @@ function Header() {
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to={"/categories"}>
+                    <Link
+                      className="dropdown-item"
+                      to={"/categories"}
+                      style={{ fontWeight: "400" }}
+                    >
                       All Categories
                     </Link>
                   </li>
@@ -72,6 +76,7 @@ function Header() {
                       <Link
                         className="dropdown-item"
                         to={`/category/${c.slug}`}
+                        style={{ fontWeight: "300" }}
                       >
                         {c.name}
                       </Link>
@@ -113,6 +118,7 @@ function Header() {
                             auth?.user?.role === 1 ? "admin" : "user"
                           }`}
                           className="dropdown-item"
+                          style={{ fontWeight: "300" }}
                         >
                           Dashboard
                         </NavLink>
@@ -122,6 +128,7 @@ function Header() {
                           to="/login"
                           className="dropdown-item"
                           onClick={handleLogout}
+                          style={{ fontWeight: "300" }}
                         >
                           Log Out
                         </NavLink>

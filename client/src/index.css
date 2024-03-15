@@ -18,6 +18,11 @@
   box-shadow: 0 2px 5px #b1b1b1c4;
   --webkit-box-shadow: 0 8px 6px -6px gray;
   border-bottom: 2px solid #b1b1b1c4;
+  /* position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 999;
+  margin-bottom: 100px; */
 }
 .nav-link {
   font-weight: 300;

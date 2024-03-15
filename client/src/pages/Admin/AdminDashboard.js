@@ -13,11 +13,19 @@ function AdminDashboard() {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <div className="card p-3">
-              <h5>Admin Name: {auth?.user?.name}</h5>
-              <h5>Admin Email: {auth?.user?.email}</h5>
-              <h5>Admin Contact: {auth?.user?.phone}</h5>
-              <h5>Admin Address: {auth?.user?.address}</h5>
+            <div className="card p-3 bg-light">
+              <h5 style={{ fontWeight: "300" }}>
+                Admin Name: {auth?.user?.name}
+              </h5>
+              <h5 style={{ fontWeight: "300" }}>
+                Admin Email: {auth?.user?.email}
+              </h5>
+              <h5 style={{ fontWeight: "300" }}>
+                Admin Contact: {auth?.user?.phone}
+              </h5>
+              <h5 style={{ fontWeight: "300" }}>
+                Admin Address: {auth?.user?.address}
+              </h5>
             </div>
           </div>
         </div>

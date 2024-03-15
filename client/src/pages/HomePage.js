@@ -128,7 +128,9 @@ function HomePage() {
           <h4>Filters</h4>
           {/* filter by category  */}
           <div className="mb-3">
-            <h5 className="">Select by Category</h5>
+            <h5 className="" style={{ fontWeight: "400" }}>
+              Select by Category
+            </h5>
             <div className="d-flex flex-column">
               {categories.map((c) => (
                 <Checkbox
@@ -143,7 +145,9 @@ function HomePage() {
 
           {/* filter by price  */}
           <div className="mb-3">
-            <h5 className="">Select by Price</h5>
+            <h5 className="" style={{ fontWeight: "400" }}>
+              Select by Price
+            </h5>
             <div className="d-flex flex-column">
               <Radio.Group onChange={(e) => setRadio(e.target.value)}>
                 {PriceRange.map((p) => (
@@ -156,8 +160,9 @@ function HomePage() {
           </div>
           <div className="d-flex flex-column">
             <button
-              className="btn btn-danger"
+              className="btn btn-warning"
               onClick={() => window.location.reload()}
+              style={{ width: "80%" }}
             >
               RESET FILTERS
             </button>
@@ -174,7 +179,9 @@ function HomePage() {
                   alt="Product-image"
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{p.name}</h5>
+                  <h5 className="card-title" style={{ fontWeight: "400" }}>
+                    {p.name}
+                  </h5>
                   <p className="card-text">{p.description.substring(0, 30)}</p>
                   <p className="card-text">₹ {p.price}</p>
                   <button
@@ -203,7 +210,7 @@ function HomePage() {
           <div className="m-3">
             {products && products.length > 0 && products.length < total && (
               <button
-                className="btn btn-outline-dark"
+                className="btn btn-outline-warning"
                 onClick={(e) => {
                   e.preventDefault();
                   setPage(page + 1);

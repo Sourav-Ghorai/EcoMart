@@ -140,9 +140,9 @@ export const forgotPasswordController = async (req, res) => {
     await userModel.findByIdAndUpdate(user._id, { password: hashed });
     res.status(200).send({
       success: true,
-      message: "Password reset successfully"
+      message: "Password reset successfully",
     });
-   }catch (error) {
+  } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
@@ -155,4 +155,36 @@ export const forgotPasswordController = async (req, res) => {
 //Test controller
 export const testController = (req, res) => {
   res.send("Protected Routes");
+};
+
+//Update user Profile
+export const updateProfileController = async (req, res) => {
+  try {
+    const { name, email, password, address, phone } = req.body;
+    const user = await userModel.findById(req.user._id);
+
+    const hashed = password ? await hashPassword(password) : undefined;
+    const updatedUser = await userModel.findByIdAndUpdate(
+      req.user._id,
+      {
+        name: name || user.name,
+        password: hashed || user.password,
+        address: address || user.address,
+        phone: phone || user.phone,
+      },
+      { new: true }
+    );
+    res.status(200).send({
+      success: true,
+      message: "Profile updated successfully",
+      updatedUser
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      message: "Error in updating user profile",
+      error,
+    });
+  }
 };
