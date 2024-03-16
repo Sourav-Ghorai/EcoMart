@@ -123,102 +123,110 @@ function HomePage() {
   return (
     <Layout title={"EcoMart - Best Offers"}>
       {/* <p>{JSON.stringify(radio)}</p> */}
-      <div className="row mt-3">
-        <div className="col-md-2 m-3 mt-0">
-          <h4>Filters</h4>
-          {/* filter by category  */}
-          <div className="mb-3">
-            <h5 className="" style={{ fontWeight: "400" }}>
-              Select by Category
-            </h5>
+      <div className="container-fluid p-3">
+        <div className="row">
+          <div className="col-md-2">
+            <h4>Filters</h4>
+            {/* filter by category  */}
+            <div className="mb-3">
+              <h5 className="" style={{ fontWeight: "400" }}>
+                Select by Category
+              </h5>
+              <div className="d-flex flex-column">
+                {categories.map((c) => (
+                  <Checkbox
+                    key={c._id}
+                    onChange={(e) => handleFilter(e.target.checked, c._id)}
+                  >
+                    {c.name}
+                  </Checkbox>
+                ))}
+              </div>
+            </div>
+
+            {/* filter by price  */}
+            <div className="mb-3">
+              <h5 className="" style={{ fontWeight: "400" }}>
+                Select by Price
+              </h5>
+              <div className="d-flex flex-column">
+                <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+                  {PriceRange.map((p) => (
+                    <div key={p._id}>
+                      <Radio value={p.array}>{p.name}</Radio>
+                    </div>
+                  ))}
+                </Radio.Group>
+              </div>
+            </div>
             <div className="d-flex flex-column">
-              {categories.map((c) => (
-                <Checkbox
-                  key={c._id}
-                  onChange={(e) => handleFilter(e.target.checked, c._id)}
+              <button
+                className="btn btn-warning mb-4"
+                onClick={() => window.location.reload()}
+                style={{ width: "80%" }}
+              >
+                RESET FILTERS
+              </button>
+            </div>
+          </div>
+          <div className="col-md-10">
+            <h4 className="text-center">All Products</h4>
+            <div className="d-flex flex-wrap justify-content-center">
+              {products.map((p) => (
+                <div
+                  className="card m-2"
+                  style={{ width: "18rem" }}
+                  key={p._id}
                 >
-                  {c.name}
-                </Checkbox>
+                  <img
+                    src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                    className="card-img-top"
+                    alt="Product-image"
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title" style={{ fontWeight: "400" }}>
+                      {p.name}
+                    </h5>
+                    <p className="card-text">
+                      {p.description.substring(0, 30)}
+                    </p>
+                    <p className="card-text">₹ {p.price}</p>
+                    <button
+                      class="btn btn-primary ms-2"
+                      onClick={() => navigate(`/product/${p._id}`)}
+                    >
+                      More Details
+                    </button>
+                    <button
+                      class="btn btn-secondary ms-2"
+                      onClick={() => {
+                        setCart([...cart, p]);
+                        localStorage.setItem(
+                          "cart",
+                          JSON.stringify([...cart, p])
+                        );
+                        toast.success("Product added to cart successfully");
+                      }}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
               ))}
             </div>
-          </div>
-
-          {/* filter by price  */}
-          <div className="mb-3">
-            <h5 className="" style={{ fontWeight: "400" }}>
-              Select by Price
-            </h5>
-            <div className="d-flex flex-column">
-              <Radio.Group onChange={(e) => setRadio(e.target.value)}>
-                {PriceRange.map((p) => (
-                  <div key={p._id}>
-                    <Radio value={p.array}>{p.name}</Radio>
-                  </div>
-                ))}
-              </Radio.Group>
+            <div className="m-3">
+              {products && products.length > 0 && products.length < total && (
+                <button
+                  className="btn btn-outline-warning"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setPage(page + 1);
+                  }}
+                >
+                  {loading ? "Loading ..." : "Load More"}
+                </button>
+              )}
             </div>
-          </div>
-          <div className="d-flex flex-column">
-            <button
-              className="btn btn-warning"
-              onClick={() => window.location.reload()}
-              style={{ width: "80%" }}
-            >
-              RESET FILTERS
-            </button>
-          </div>
-        </div>
-        <div className="col-md-9">
-          <h4 className="text-center">All Products</h4>
-          <div className="d-flex flex-wrap justify-content-center">
-            {products.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
-                <img
-                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
-                  alt="Product-image"
-                />
-                <div className="card-body">
-                  <h5 className="card-title" style={{ fontWeight: "400" }}>
-                    {p.name}
-                  </h5>
-                  <p className="card-text">{p.description.substring(0, 30)}</p>
-                  <p className="card-text">₹ {p.price}</p>
-                  <button
-                    class="btn btn-primary ms-2"
-                    onClick={() => navigate(`/product/${p._id}`)}
-                  >
-                    More Details
-                  </button>
-                  <button
-                    class="btn btn-secondary ms-2"
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
-                      toast.success("Product added to cart successfully");
-                    }}
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="m-3">
-            {products && products.length > 0 && products.length < total && (
-              <button
-                className="btn btn-outline-warning"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setPage(page + 1);
-                }}
-              >
-                {loading ? "Loading ..." : "Load More"}
-              </button>
-            )}
           </div>
         </div>
       </div>

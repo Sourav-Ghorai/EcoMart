@@ -31,6 +31,12 @@ function AdminMenu() {
           >
             All Products
           </NavLink>
+          <NavLink
+            to="/dashboard/admin/orders"
+            className="list-group-item list-group-item-action"
+          >
+            All Orders
+          </NavLink>
         </div>
       </div>
     </>

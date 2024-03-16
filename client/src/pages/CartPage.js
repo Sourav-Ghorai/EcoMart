@@ -126,7 +126,7 @@ function CartPage() {
                   <p className="my-1">
                     Description: {p.description.substring(0, 30)}
                   </p>
-                  <p className="my-1">Price: {p.price}</p>
+                  <p className="my-1">Price: ₹ {p.price}</p>
                   <button
                     className="btn btn-danger mt-1"
                     onClick={() => removeCartItem(p._id)}
