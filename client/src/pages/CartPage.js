@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout/Layout";
 import { useAuth } from "../contextApi/auth";
 import { useCart } from "../contextApi/cart";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import axios from "axios";
+import DropIn from "braintree-web-drop-in-react";
 
 function CartPage() {
   const [auth, setAuth] = useAuth();
   const [cart, setCart] = useCart();
+  const [clientToken, setClientToken] = useState("");
+  const [instance, setInstance] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   //Calculate total price
@@ -25,6 +30,7 @@ function CartPage() {
       console.log(error);
     }
   };
+
   //Handle remove cart item
   const removeCartItem = (pid) => {
     try {
@@ -36,6 +42,48 @@ function CartPage() {
       toast.success("Item removed");
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  //Payment gateway.
+  //Get token
+  const getToken = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/braintree/token`
+      );
+      setClientToken(data?.clientToken);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getToken();
+  }, [auth?.token]);
+
+  //Handle payment function
+  const handlePayment = async () => {
+    try {
+      setLoading(true);
+      const { nonce } = await instance.requestPaymentMethod();
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/product/braintree/payment`,
+        { cart, nonce },
+        {
+          headers: {
+            Authorization: auth?.token,
+          },
+        }
+      );
+      setLoading(false);
+      localStorage.removeItem("cart");
+      setCart([]);
+      navigate("/dashboard/user/orders");
+      toast.success("Payment completed successfully");
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
     }
   };
 
@@ -62,7 +110,7 @@ function CartPage() {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-md-6">
             {cart?.map((p) => (
               <div className="row card flex-row mb-3 p-2">
                 <div className="col-md-4">
@@ -89,7 +137,7 @@ function CartPage() {
               </div>
             ))}
           </div>
-          <div className="col-md-4 text-center">
+          <div className="col-md-6 text-center px-5">
             <h4 style={{ fontWeight: "400" }}>Cart Summary</h4>
             <p>Total | Checkout | Payment</p>
             <hr />
@@ -97,7 +145,7 @@ function CartPage() {
             <hr />
             {auth?.user?.address ? (
               <>
-                <div className="m-3">
+                <div className="m-2">
                   <h5 style={{ fontWeight: "400" }}>Current Address</h5>
                   <h6 style={{ fontWeight: "300" }}>{auth?.user?.address}</h6>
                   <button
@@ -109,7 +157,7 @@ function CartPage() {
                 </div>
               </>
             ) : (
-              <div className="mb-3">
+              <div className="mb-2">
                 {auth?.token ? (
                   <button
                     className="btn btn-outline-warning"
@@ -129,6 +177,28 @@ function CartPage() {
                     Please Login to checkout
                   </button>
                 )}
+              </div>
+            )}
+            {!clientToken || !cart.length ? (
+              ""
+            ) : (
+              <div className="mt-3">
+                <DropIn
+                  options={{
+                    authorization: clientToken,
+                    paypal: {
+                      flow: "vault",
+                    },
+                  }}
+                  onInstance={(instance) => setInstance(instance)}
+                />
+                <button
+                  className="btn btn-primary mt-3 mb-5"
+                  onClick={handlePayment}
+                  disabled={loading || !instance || !auth?.user?.address}
+                >
+                  {loading ? "Processing...." : "Make Payment"}
+                </button>
               </div>
             )}
           </div>
