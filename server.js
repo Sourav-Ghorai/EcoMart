@@ -7,6 +7,8 @@ import authRoute from "./routes/authRoute.js";
 import categoryRoute from "./routes/categoryRoute.js";
 import productRoute from "./routes/productRoute.js";
 import cors from "cors";
+
+//For hosting the website
 import path from "path";
 import { fileURLToPath } from "url";
 
