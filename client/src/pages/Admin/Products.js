@@ -16,13 +16,13 @@ function Products() {
       );
       setProducts(data.products);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something went wrong");
     }
   };
   useEffect(() => {
     getAllProducts();
-     console.log(products)
+   //   console.log(products)
   }, []);
 
   return (

@@ -41,7 +41,7 @@ function CartPage() {
       localStorage.setItem("cart", JSON.stringify(myCart));
       toast.success("Item removed");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -54,7 +54,7 @@ function CartPage() {
       );
       setClientToken(data?.clientToken);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -82,7 +82,7 @@ function CartPage() {
       navigate("/dashboard/user/orders");
       toast.success("Payment completed successfully");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setLoading(false);
     }
   };

@@ -32,7 +32,7 @@ function UpdateProduct() {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/product/get-product/${params.pid}`
       );
-      console.log(data);
+      // console.log(data);
       setName(data.product.name);
       setId(data.product._id);
       setDescription(data.product.description);
@@ -40,7 +40,7 @@ function UpdateProduct() {
       setQuantity(data.product.quantity);
       setCategory(data.product.category._id);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -60,7 +60,7 @@ function UpdateProduct() {
         setCategories(data.category);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something went worng in getting categories!");
     }
   };
@@ -97,9 +97,9 @@ function UpdateProduct() {
       } else {
         toast.error(data.error);
       }
-      console.log(data);
+      // console.log(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something went worng in updating product");
     }
   };
@@ -118,7 +118,7 @@ function UpdateProduct() {
       toast.success(data.message);
       navigate("/dashboard/admin/products");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something went wrong");
     }
   };

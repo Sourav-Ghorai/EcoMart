@@ -34,7 +34,7 @@ function AdminOrders() {
       );
       setOrders(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -56,7 +56,7 @@ function AdminOrders() {
       );
       getOrders();
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

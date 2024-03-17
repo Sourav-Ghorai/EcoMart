@@ -39,7 +39,7 @@ function CreateCategory() {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something went wrong in input category!");
     }
   };
@@ -69,7 +69,7 @@ function CreateCategory() {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something went wrong in updating category");
     }
   };
@@ -94,7 +94,7 @@ function CreateCategory() {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something went wrong in deleting category");
     }
   };
@@ -109,7 +109,7 @@ function CreateCategory() {
         setCategories(data.category);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something went worng in getting categories!");
     }
   };

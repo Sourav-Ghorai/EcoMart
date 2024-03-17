@@ -62,7 +62,7 @@ function HomePage() {
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -74,7 +74,7 @@ function HomePage() {
       );
       setTotal(data.total);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -88,7 +88,7 @@ function HomePage() {
       setLoading(false);
       setProducts([...products, ...data.products]);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setLoading(false);
     }
   };
@@ -106,7 +106,7 @@ function HomePage() {
       );
       setProducts(data.products);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

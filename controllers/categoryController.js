@@ -28,7 +28,7 @@ export const createCategoryController = async (req, res) => {
       category,
     });
   } catch (error) {
-    console.log(error);
+   //  console.log(error);
     res.status(500).send({
       success: false,
       message: "Error in category controller",
@@ -61,7 +61,7 @@ export const updateCategoryController = async (req, res) => {
       category,
     });
   } catch (error) {
-    console.log(error);
+   //  console.log(error);
     res.status(500).send({
       success: false,
       message: "Error in category updating",
@@ -80,7 +80,7 @@ export const getCategory = async (req, res) => {
       category,
     });
   } catch (error) {
-    console.log(error);
+   //  console.log(error);
     res.status(500).send({
       success: false,
       message: "Error in all category fetching",
@@ -99,7 +99,7 @@ export const singleCategoryController = async (req, res) => {
       category,
     });
   } catch (error) {
-    console.log(error);
+   //  console.log(error);
     res.status(500).send({
       success: false,
       message: "Error in single category fetching",
@@ -118,7 +118,7 @@ export const deleteCategoryController = async (req, res) => {
       message: "Deleted successfully",
     });
   } catch (error) {
-    console.log(error);
+   //  console.log(error);
     res.status(500).send({
       success: false,
       message: "Error in deleting category",

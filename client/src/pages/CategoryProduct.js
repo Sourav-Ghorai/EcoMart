@@ -23,7 +23,7 @@ function CategoryProduct() {
       setProducts(data.products);
       setCategory(data.category);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
   useEffect(() => {

@@ -24,7 +24,7 @@ function ProductDetails() {
       // console.log(data?.product._id, data?.product.category._id)
       getSimilarProduct(data?.product._id, data?.product.category._id);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -41,7 +41,7 @@ function ProductDetails() {
       // console.log(data);
       setRelatedProduct(data.products);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

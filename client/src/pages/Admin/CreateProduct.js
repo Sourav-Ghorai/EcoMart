@@ -32,7 +32,7 @@ function CreateProduct() {
         setCategories(data.category);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something went worng in getting categories!");
     }
   };
@@ -69,9 +69,9 @@ function CreateProduct() {
       } else {
         toast.error(data.error);
       }
-      console.log(data);
+      // console.log(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something went worng in creating product");
     }
   };
