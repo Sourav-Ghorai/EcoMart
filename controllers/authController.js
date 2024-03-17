@@ -207,3 +207,43 @@ export const getOrderController = async (req, res) => {
     });
   }
 };
+
+//Get all user orders for admin control
+export const getAllOrderController = async (req, res) => {
+  try {
+    const orders = await orderModel
+      .find()
+      .populate("products", "-photo")
+      .populate("buyer", "name")
+      .sort({ createdAt: -1 });
+    res.json(orders);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error while getting all user orders",
+      error,
+    });
+  }
+};
+
+//Order status update by admin
+export const orderStatusController = async (req, res) => {
+  try {
+    const { orderId } = req.params;
+    const { status } = req.body;
+    const order = await orderModel.findByIdAndUpdate(
+      orderId,
+      { status },
+      { new: true }
+    );
+    res.json(order);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error while updating order status",
+      error,
+    });
+  }
+};

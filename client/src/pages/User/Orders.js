@@ -69,9 +69,9 @@ function Orders() {
                         </tr>
                       </tbody>
                     </table>
-                    <div className="my-4 px-3 d-flex flex-wrap gap-3 ">
+                    <div className="row my-4 px-3 gap-4">
                       {o?.products?.map((p) => (
-                        <div className="row card p-2 mx-2">
+                        <div className="col-sm-4 col-lg-3 card p-3">
                           <div className="">
                             <img
                               src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
