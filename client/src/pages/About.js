@@ -13,13 +13,14 @@ const About = () => {
           />
         </div>
         <div className="col-md-4">
+          <h3
+            className="p-3 text-white text-center"
+            style={{ background: "rgb(66, 66, 66)" }}
+          >
+            About Us
+          </h3>
           <p className="text-justify mt-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            officiis obcaecati esse tempore unde ratione, eveniet mollitia,
-            perferendis eius temporibus dicta blanditiis doloremque explicabo
-            quasi sunt vero optio cum aperiam vel consectetur! Laborum enim
-            accusantium atque, excepturi sapiente amet! Tenetur ducimus aut
-            commodi illum quidem neque tempora nam.
+          At EcoMart, we're dedicated to provide top-quality products and exceptional service. With a passion for innovation and customer satisfaction, we strive to exceed expectations in every interaction. Our team is committed to transparency, integrity, and fostering lasting relationships with our valued customers. From our humble beginnings to our vision for the future, discover the journey of EcoMart and join us in shaping a brighter tomorrow.
           </p>
         </div>
       </div>

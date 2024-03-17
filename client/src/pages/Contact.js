@@ -13,12 +13,18 @@ const Contact = () => {
           />
         </div>
         <div className="col-md-4">
-          <h1 className="p-2 text-white text-center" style={{background: "rgb(66, 66, 66)"}}>CONTACT US</h1>
+          <h3
+            className="p-3 text-white text-center"
+            style={{ background: "rgb(66, 66, 66)" }}
+          >
+            CONTACT US
+          </h3>
           <p className="text-justify mt-2">
-            For any query and info about products, feel free to call anytime. We are availabale for 24X7.
+            For any query and info about products, feel free to call anytime. We
+            are availabale for 24X7.
           </p>
           <p className="mt-3">
-            <BiMailSend /> : www.help@ecommerceapp.com
+            <BiMailSend /> : www.help@EcoMart.com
           </p>
           <p className="mt-3">
             <BiPhoneCall /> : 012-3456789
