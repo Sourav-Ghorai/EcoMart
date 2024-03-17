@@ -1,12 +1,14 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function AdminMenu() {
   return (
     <>
       <div className="text-center">
         <div className="list-group">
-          <h4 className="mb-3">Admin Panel</h4>
+          <Link to="/dashboard/admin" className="dashboard-title">
+            Admin Panel
+          </Link>
           <NavLink
             to="/dashboard/admin/create-category"
             className="list-group-item list-group-item-action"
@@ -18,12 +20,6 @@ function AdminMenu() {
             className="list-group-item list-group-item-action"
           >
             Create Product
-          </NavLink>
-          <NavLink
-            to="/dashboard/admin/users"
-            className="list-group-item list-group-item-action"
-          >
-            Users
           </NavLink>
           <NavLink
             to="/dashboard/admin/products"

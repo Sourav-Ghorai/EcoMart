@@ -23,7 +23,7 @@ function Header() {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg fixed-top">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">
             <PiShoppingCartDuotone style={{ fontSize: "30px" }} /> EcoMart
@@ -41,10 +41,9 @@ function Header() {
             <span className="navbar-toggler-icon" />
           </button>
 
-          <SearchInput />
-
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <SearchInput />
               <li className="nav-item">
                 <NavLink to="/" className="nav-link" aria-current="page">
                   Home

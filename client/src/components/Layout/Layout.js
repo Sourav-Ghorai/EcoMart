@@ -18,8 +18,10 @@ function Layout({ children, title, description, keywords, author }) {
 
       <Header />
       {/* For generating success popup or error popup, we use toaster  */}
-      <Toaster />
-      <main style={{ minHeight: "70vh" }}>{children}</main>
+      <main style={{ minHeight: "100vh", marginTop: "60px" }}>
+        <Toaster />
+        {children}
+      </main>
       <Footer />
     </>
   );

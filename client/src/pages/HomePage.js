@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../Styles/HomePage.css";
 import Layout from "../components/Layout/Layout";
 import { useAuth } from "../contextApi/auth";
 import axios from "axios";
@@ -6,6 +7,7 @@ import { Checkbox, Radio } from "antd";
 import { PriceRange } from "../components/PriceRange";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../contextApi/cart";
+import { AiOutlineReload } from "react-icons/ai";
 import toast from "react-hot-toast";
 
 function HomePage() {
@@ -123,16 +125,26 @@ function HomePage() {
   return (
     <Layout title={"EcoMart - Best Offers"}>
       {/* <p>{JSON.stringify(radio)}</p> */}
-      <div className="container-fluid p-3">
+
+      {/* banner image */}
+      <img
+        src="./images/banner.png"
+        className="banner-img"
+        alt="bannerimage"
+        width={"100%"}
+      />
+      {/* banner image */}
+
+      <div className="container-fluid p-3 mt-3 home-page">
         <div className="row">
-          <div className="col-md-2">
+          <div className="col-md-2 filters">
             <h4>Filters</h4>
             {/* filter by category  */}
             <div className="mb-3">
               <h5 className="" style={{ fontWeight: "400" }}>
                 Select by Category
               </h5>
-              <div className="d-flex flex-column">
+              <div className="d-flex flex-column checkbox">
                 {categories.map((c) => (
                   <Checkbox
                     key={c._id}
@@ -150,7 +162,10 @@ function HomePage() {
                 Select by Price
               </h5>
               <div className="d-flex flex-column">
-                <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+                <Radio.Group
+                  onChange={(e) => setRadio(e.target.value)}
+                  className="checkbox"
+                >
                   {PriceRange.map((p) => (
                     <div key={p._id}>
                       <Radio value={p.array}>{p.name}</Radio>
@@ -161,16 +176,16 @@ function HomePage() {
             </div>
             <div className="d-flex flex-column">
               <button
-                className="btn btn-warning mb-4"
+                className="btn btn-dark mb-4"
                 onClick={() => window.location.reload()}
-                style={{ width: "80%" }}
+                style={{ width: "100%" }}
               >
                 RESET FILTERS
               </button>
             </div>
           </div>
           <div className="col-md-10">
-            <h4 className="text-center">All Products</h4>
+            <h3 className="text-center mb-3">All Products</h3>
             <div className="d-flex flex-wrap justify-content-center">
               {products.map((p) => (
                 <div
@@ -184,46 +199,61 @@ function HomePage() {
                     alt="Product-image"
                   />
                   <div className="card-body">
-                    <h5 className="card-title" style={{ fontWeight: "400" }}>
-                      {p.name}
-                    </h5>
+                    <div className="card-name-price">
+                      <h5 className="card-title">{p.name}</h5>
+                      <h5 className="card-title card-price">
+                        {p.price.toLocaleString("en-US", {
+                          style: "currency",
+                          currency: "INR",
+                        })}
+                      </h5>
+                    </div>
                     <p className="card-text">
-                      {p.description.substring(0, 30)}
+                      {p.description.substring(0, 60)}
                     </p>
-                    <p className="card-text">₹ {p.price}</p>
-                    <button
-                      class="btn btn-primary ms-2"
-                      onClick={() => navigate(`/product/${p._id}`)}
-                    >
-                      More Details
-                    </button>
-                    <button
-                      class="btn btn-secondary ms-2"
-                      onClick={() => {
-                        setCart([...cart, p]);
-                        localStorage.setItem(
-                          "cart",
-                          JSON.stringify([...cart, p])
-                        );
-                        toast.success("Product added to cart successfully");
-                      }}
-                    >
-                      Add to Cart
-                    </button>
+
+                    <div className="card-name-price">
+                      <button
+                        class="btn btn-info ms-2"
+                        onClick={() => navigate(`/product/${p._id}`)}
+                      >
+                        More Details
+                      </button>
+                      <button
+                        class="btn btn-dark ms-2"
+                        onClick={() => {
+                          setCart([...cart, p]);
+                          localStorage.setItem(
+                            "cart",
+                            JSON.stringify([...cart, p])
+                          );
+                          toast.success("Product added to cart successfully");
+                        }}
+                      >
+                        Add to Cart
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
             <div className="m-3">
-              {products && products.length > 0 && products.length < total && (
+              {products && products.length < total && (
                 <button
-                  className="btn btn-outline-warning"
+                  className="btn loadmore"
                   onClick={(e) => {
                     e.preventDefault();
                     setPage(page + 1);
                   }}
                 >
-                  {loading ? "Loading ..." : "Load More"}
+                  {loading ? (
+                    "Loading ..."
+                  ) : (
+                    <>
+                      {" "}
+                      Loadmore <AiOutlineReload />
+                    </>
+                  )}
                 </button>
               )}
             </div>

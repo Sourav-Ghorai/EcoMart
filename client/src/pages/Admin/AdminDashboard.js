@@ -12,7 +12,7 @@ function AdminDashboard() {
           <div className="col-md-3 mb-3">
             <AdminMenu />
           </div>
-          <div className="col-md-9">
+          <div className="col-md-6">
             <div className="card p-3 bg-light">
               <h5 style={{ fontWeight: "300" }}>
                 Admin Name: {auth?.user?.name}

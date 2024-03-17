@@ -75,13 +75,18 @@ function Login() {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            className="btn btn-dark my-2"
+            style={{ width: "100%" }}
+          >
             Log in
           </button>
           <div className="mt-3">
             <button
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-light"
+              style={{ width: "100%" }}
               onClick={() => navigate("/forgot-password")}
             >
               Forgot Password

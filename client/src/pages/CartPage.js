@@ -89,30 +89,30 @@ function CartPage() {
 
   return (
     <Layout>
-      <div className="container mt-3">
-        <div className="row">
-          <div className="col-md-12">
-            <h4
-              className="text-center "
+      <div className="container-fluid">
+        <div className="row mb-3">
+          <div className="col-md-12 bg-light p-2">
+            <h3
+              className="text-center bg-light p-2 mb-1"
               style={{ fontWeight: "400" }}
-            >{`Hello ${auth?.token && auth.user.name}`}</h4>
-
-            <h6
-              className="text-center mb-4"
-              style={{ fontSize: "1.1rem", fontWeight: "300" }}
             >
-              {cart.length > 0
-                ? `You have ${cart.length} items in your cart. ${
-                    auth?.token ? "" : "Please login to checkout."
+              {!auth?.user
+                ? "Hello Guest"
+                : `Hello  ${auth?.token && auth?.user?.name}`}
+            </h3>
+            <p className="text-center">
+              {cart?.length
+                ? `You Have ${cart.length} items in your cart ${
+                    auth?.token ? "" : "please login to checkout !"
                   }`
-                : `You have no items in your cart.`}
-            </h6>
+                : " Your Cart Is Empty"}
+            </p>
           </div>
         </div>
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-6 px-5 mb-3">
             {cart?.map((p) => (
-              <div className="row card flex-row mb-3 p-2">
+              <div className="row card flex-row mb-3 py-3">
                 <div className="col-md-4">
                   <img
                     src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
@@ -122,13 +122,19 @@ function CartPage() {
                   />
                 </div>
                 <div className="col-md-8">
-                  <p className="my-1">Name: {p.name}</p>
-                  <p className="my-1">
-                    Description: {p.description.substring(0, 30)}
-                  </p>
-                  <p className="my-1">Price: ₹ {p.price}</p>
+                  <h5 className="card-title">{p.name}</h5>
+                  <p className="card-text">{p.description.substring(0, 60)}</p>
+                  <h5
+                    className="card-title card-price"
+                    style={{ color: "green" }}
+                  >
+                    {p.price.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "INR",
+                    })}
+                  </h5>
                   <button
-                    className="btn btn-danger mt-1"
+                    className="btn btn-outline-info mt-2"
                     onClick={() => removeCartItem(p._id)}
                   >
                     Remove
@@ -141,7 +147,7 @@ function CartPage() {
             <h4 style={{ fontWeight: "400" }}>Cart Summary</h4>
             <p>Total | Checkout | Payment</p>
             <hr />
-            <h5>Total: {totalPrice()}</h5>
+            <h5 style={{ color: "green" }}>Total: {totalPrice()}</h5>
             <hr />
             {auth?.user?.address ? (
               <>
@@ -193,7 +199,7 @@ function CartPage() {
                   onInstance={(instance) => setInstance(instance)}
                 />
                 <button
-                  className="btn btn-primary mt-3 mb-5"
+                  className="btn btn-info mt-3 mb-5"
                   onClick={handlePayment}
                   disabled={loading || !instance || !auth?.user?.address}
                 >

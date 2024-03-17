@@ -75,7 +75,7 @@ function ForgotPassword() {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-dark" style={{ width: "100%" }}>
             Reset
           </button>
         </form>

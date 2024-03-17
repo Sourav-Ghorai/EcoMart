@@ -36,7 +36,7 @@ function Register() {
 
   return (
     <Layout title={"Register in EcoMart"}>
-      <div className="form-container">
+      <div className="form-container ">
         <form onSubmit={handleSubmit}>
           <p className="title">Registration Form</p>
           <div className="mb-3">
@@ -105,7 +105,7 @@ function Register() {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-dark" style={{ width: "100%" }}>
             Sign Up
           </button>
         </form>

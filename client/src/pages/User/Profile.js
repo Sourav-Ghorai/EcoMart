@@ -119,7 +119,7 @@ function Profile() {
                 </div>
                 <button
                   type="submit"
-                  className="btn btn-primary"
+                  className="btn btn-dark"
                   style={{ width: "100%" }}
                 >
                   Update

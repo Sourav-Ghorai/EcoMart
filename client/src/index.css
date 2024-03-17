@@ -18,11 +18,6 @@
   box-shadow: 0 2px 5px #b1b1b1c4;
   --webkit-box-shadow: 0 8px 6px -6px gray;
   border-bottom: 2px solid #b1b1b1c4;
-  /* position: fixed;
-  top: 0px;
-  width: 100%;
-  z-index: 999;
-  margin-bottom: 100px; */
 }
 .nav-link {
   font-weight: 300;
@@ -38,6 +33,21 @@
   letter-spacing: 0.8px;
   text-shadow: 2px 3px 2px #4b4a4a38;
 }
+
+.search-form {
+   margin-right: 15px;
+   margin-top: 4px;
+ }
+ .search-form input {
+   border: none;
+   border-radius: 5px;
+ }
+ .search-form button {
+   background-color: #414142;
+   border: none;
+   border-radius: 5px;
+   color: white;
+ }
 
 /* ..........Footer............. */
 
@@ -120,3 +130,33 @@
 .products-item a{
    text-decoration: none !important;
 }
+
+.cat-btn {
+   padding: 40px 0px;
+   font-size: 24px;
+   text-transform: uppercase;
+   /* background-color: #f0eeee; */
+ }
+ .cat-btn:hover {
+   background-color: #434343;
+   color: white;
+   transition: 0.4s ease-in-out
+ }
+
+ /* ================
+ ====dashboard
+ =================== */
+ 
+ /* .dashboard {
+   margin-top: 50px !important;
+ } */
+ 
+ .dashboard-title {
+   font-size: 25px;
+   background-color: #434343 !important;
+   color: white;
+   padding: 20px 0px;
+   border-radius: 5px 5px 0 0;
+   text-decoration: none;
+   margin-bottom: 10px;
+ }

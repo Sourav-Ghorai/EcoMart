@@ -13,7 +13,7 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import AdminRoute from "./components/Routes/AdminRoute";
 import CreateCategory from "./pages/Admin/CreateCategory";
 import CreateProduct from "./pages/Admin/CreateProduct";
-import Users from "./pages/Admin/Users";
+
 import Profile from "./pages/User/Profile";
 import Orders from "./pages/User/Orders";
 import Products from "./pages/Admin/Products";
@@ -45,7 +45,7 @@ function App() {
           <Route path="admin/create-category" element={<CreateCategory />} />
           <Route path="admin/create-product" element={<CreateProduct />} />
           <Route path="admin/products/:pid" element={<UpdateProduct />} />
-          <Route path="admin/users" element={<Users />} />
+
           <Route path="admin/products" element={<Products />} />
           <Route path="admin/orders" element={<AdminOrders />} />
         </Route>

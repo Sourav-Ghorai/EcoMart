@@ -38,7 +38,9 @@ function Orders() {
             <UserMenu />
           </div>
           <div className="col-md-9">
-            <h4 className="text-center">All Orders</h4>
+            <h4 className="text-center mb-3" style={{ fontWeight: 500 }}>
+              All Orders
+            </h4>
             {orders?.length == 0 ? (
               <h5 className="text-center card bg-light p-5">
                 Hey! order something now.

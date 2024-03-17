@@ -12,7 +12,7 @@ function Dashboard() {
           <div className="col-md-3 mb-3">
             <UserMenu />
           </div>
-          <div className="col-md-9">
+          <div className="col-md-6">
             <div className="card p-3 bg-light">
               <h5 style={{ fontWeight: "300" }}>Name: {auth?.user?.name}</h5>
               <h5 style={{ fontWeight: "300" }}>Email: {auth?.user?.email}</h5>
