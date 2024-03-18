@@ -36,7 +36,7 @@ function HomePage() {
   //Get all the categories
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
       if (data.success) {
         setCategories(data.category);
       }
@@ -172,7 +172,7 @@ function HomePage() {
                 </Radio.Group>
               </div>
             </div>
-            <div className="d-flex flex-column">
+            <div>
               <button
                 className="btn btn-dark mb-4"
                 onClick={() => window.location.reload()}
@@ -182,17 +182,14 @@ function HomePage() {
               </button>
             </div>
           </div>
+
           <div className="col-md-10">
             <h3 className="text-center mb-3" style={{ fontWeight: 600 }}>
               All Products
             </h3>
             <div className="d-flex flex-wrap justify-content-center">
               {products.map((p) => (
-                <div
-                  className="card m-2"
-                  style={{ width: "18rem" }}
-                  key={p._id}
-                >
+                <div className="card m-2" key={p._id}>
                   <img
                     src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
