@@ -6,8 +6,7 @@ EcoMart is a full-stack e-commerce website built using the MERN (MongoDB, Expres
 
 ## 📸 Some Clips
 
-<img src="./public/assets/home1.png" alt="HomePage-Demo" width="400"/>
-<img src="./public/assets/home2.png" alt="HomePage-Demo" width="400"/>
+<img src="./public/assets/home1.png" alt="HomePage-Demo" width="30%"/> <img src="./public/assets/home2.png" alt="HomePage-Demo" width="30%"/> <br/>
 
 <img src="./public/assets/register.png" alt="Register-Demo" width="400"/> <img src="./public/assets/login.png" alt="Login-Demo" width="400"/> <br/>
 
