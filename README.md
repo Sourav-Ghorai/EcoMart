@@ -1,14 +1,22 @@
 # 🛒 **EcoMart**
 
-EcoMart is a full-stack e-commerce website built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It utilizes MongoDB for data management,  and Express.js for handling HTTP requests.EcoMart enables users to browse and purchase a wide range of products across various categories, with its user-friendly interface and secure payment processing. Experience the convenience of e-commerce with EcoMart today! 🛒🌐
+EcoMart is a full-stack e-commerce website built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It utilizes MongoDB for data management,  and Express.js for handling HTTP requests. EcoMart enables users to browse and purchase a wide range of products across various categories, with its user-friendly interface and secure payment processing. Experience the convenience of e-commerce with EcoMart today! 🛒🌐
 
 ### The site is currently running at [https://perfect-pear-yoke.cyclic.app/](https://perfect-pear-yoke.cyclic.app/)
 
 ## 📸 Some Clips
 
-<img src="./public/assets/home1.png" alt="HomePage-Demo" width="30%"/> <img src="./public/assets/home2.png" alt="HomePage-Demo" width="30%"/> <br/>
+#### Home Page <br/>
+
+<img src="./public/assets/home1.png" alt="HomePage-Demo" width="400"/> <img src="./public/assets/home2.png" alt="HomePage-Demo" width="400"/> <br/>
+
+#### Register & Login <br/>
 
 <img src="./public/assets/register.png" alt="Register-Demo" width="400"/> <img src="./public/assets/login.png" alt="Login-Demo" width="400"/> <br/>
+
+#### Cart, User Dashboard and Admin panel <br/>
+
+<img src="./public/assets/cart.png" alt="Cart-Demo" width="300"/> <img src="./public/assets/userDashboard.png" alt="user dashboard-Demo" width="300"/> <img src="./public/assets/adminDashboard.png" alt="admin dashboard-Demo" width="300"/><br/>
 
 ## 🚀 Features
 
