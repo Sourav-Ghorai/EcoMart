@@ -8,15 +8,15 @@ EcoMart is a full-stack e-commerce website built using the MERN (MongoDB, Expres
 
 #### Home Page <br/>
 
-<img src="./public/assets/home1.png" alt="HomePage-Demo" width="400"/> <img src="./public/assets/home2.png" alt="HomePage-Demo" width="400"/> <br/>
+<img src="./public/assets/home1.png" alt="HomePage-Demo" width="350"/> <img src="./public/assets/home2.png" alt="HomePage-Demo" width="350"/> <br/>
 
 #### Register & Login <br/>
 
-<img src="./public/assets/register.png" alt="Register-Demo" width="400"/> <img src="./public/assets/login.png" alt="Login-Demo" width="400"/> <br/>
+<img src="./public/assets/register.png" alt="Register-Demo" width="350"/> <img src="./public/assets/login.png" alt="Login-Demo" width="350"/> <br/>
 
 #### Cart, User Dashboard and Admin panel <br/>
 
-<img src="./public/assets/cart.png" alt="Cart-Demo" width="300"/> <img src="./public/assets/userDashboard.png" alt="user dashboard-Demo" width="300"/> <img src="./public/assets/adminDashboard.png" alt="admin dashboard-Demo" width="300"/><br/>
+<img src="./public/assets/cart.png" alt="Cart-Demo" width="33%"/> <img src="./public/assets/userDashboard.png" alt="user dashboard-Demo" width="33%"/> <img src="./public/assets/adminDashboard.png" alt="admin dashboard-Demo" width="33%"/><br/>
 
 ## 🚀 Features
 
